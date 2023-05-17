@@ -1,0 +1,18 @@
+{
+  "name": "tarea2sd",
+  "version": "1.0.0",
+  "description": "- Tenemos una aplicación web o móvil que genera eventos en tiempo real a medida que los usuarios interactúan con ella. Estos eventos pueden ser acciones como clics, navegación, compras, etc. Quieres registrar y analizar estos eventos de manera eficiente y en tiempo real, utilizando colas de mensajes y simulando dispositivos IoT.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "random-words": "^1.3.0"
+  }
+}
