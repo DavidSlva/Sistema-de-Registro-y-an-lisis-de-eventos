@@ -1,30 +1,36 @@
 // hilo.js
 const randomWords = require('random-words');
+const { workerData, parentPort } = require('worker_threads');
 
-// Genera un párrafo de 5 frases aleatorias
-function generarTextoRandom() {
-  let texto = '';
-  for (let i = 0; i < 5; i++) {
-    texto += randomWords({ min: 5, max: 10 }).join(' ') + '. ';
+// Función para generar un número aleatorio entre un rango dado
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// Genera un párrafo de frases aleatorias con una longitud también aleatoria
+function generarTextoRandom(minPalabras) {
+  const numFrases = getRandomNumber(3, 7); // Número de frases aleatorias
+  const frases = [];
+  for (let i = 0; i < numFrases; i++) {
+    const numPalabras = getRandomNumber(minPalabras, 10); // Número de palabras aleatorias por frase
+    frases.push(randomWords({ min: numPalabras, max: numPalabras }).join(' '));
   }
-  return texto;
+  return frases.join('. ') + '.';
 }
 
 // Función que se ejecuta en el hilo de trabajo
-function trabajar() {
-  // Realizar tareas en el hilo...
-  const resultado = randomWords();
-  
-  // Enviar el resultado de vuelta al hilo principal
-  parentPort.postMessage(resultado);
+function trabajar(timestamp, minPalabras) {
+  setInterval(() => {
+    const resultado = {
+      timestamp: timestamp,
+      value: generarTextoRandom(minPalabras)
+    };
+    parentPort.postMessage(resultado);
+  }, getRandomNumber(1000, 5000)); // Intervalo de tiempo aleatorio entre envíos (entre 1 y 5 segundos)
 }
 
-// Importar el módulo 'worker_threads' y obtener la referencia al puerto de comunicación con el hilo principal
-const { workerData, parentPort } = require('worker_threads');
-
 // Obtener los datos pasados desde el hilo principal
-const valorInicial = workerData;
+const { timestamp, minPalabras } = workerData;
 
-// Ejecutar la función 'trabajar' en el hilo de trabajo, pasando el valor inicial
-trabajar(valorInicial);
-
+// Ejecutar la función 'trabajar' en el hilo de trabajo, pasando los datos necesarios
+trabajar(timestamp, minPalabras);
