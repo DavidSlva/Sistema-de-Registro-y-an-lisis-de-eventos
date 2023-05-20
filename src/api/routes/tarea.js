@@ -7,7 +7,13 @@ module.exports = (app) => {
     const Thread = new ThreadService()
 
     router.get('/', async (req, res) => {
-        Thread.inicializar(100000, 100)
+        Thread.inicializar(1000, 100)
+            .then(() => {
+                console.log('Hilo funcionando')
+            })
+            .catch(error => {
+                console.error('Error al ejecutar el hilo:', error);
+            });
         // for(let i = 0; i < 100; i++){
             
         //     .then(() => {
