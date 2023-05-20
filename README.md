@@ -1,4 +1,9 @@
 # Sistema de registro y análisis de eventos en tiempo real
+
+## Ejecución
+- npm start
+- Para probar con un thread: http://localhost:8000/api/v1/tarea
+
 ## Problema 
 - Tenemos una aplicación web o móvil que genera eventos en tiempo real a medida que los usuarios interactúan con ella. Estos eventos pueden ser acciones como clics, navegación, compras, etc. Quieres registrar y analizar estos eventos de manera eficiente y en tiempo real, utilizando colas de mensajes y simulando dispositivos IoT.
 
