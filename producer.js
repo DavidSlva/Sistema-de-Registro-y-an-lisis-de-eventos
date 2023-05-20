@@ -26,7 +26,7 @@ function trabajar(timestamp, minPalabras) {
       value: generarTextoRandom(minPalabras)
     };
     parentPort.postMessage(resultado);
-  }, getRandomNumber(1000, 5000)); // Intervalo de tiempo aleatorio entre envíos (entre 1 y 5 segundos)
+  }, timestamp); // Intervalo de tiempo aleatorio entre envíos (entre 1 y 5 segundos)
 }
 
 // Obtener los datos pasados desde el hilo principal
