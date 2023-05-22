@@ -1,4 +1,3 @@
-// hilo.js
 const randomWords = require('random-words');
 const { workerData, parentPort } = require('worker_threads');
 
@@ -20,13 +19,7 @@ function generarTextoRandom(minPalabras) {
 
 // Función que se ejecuta en el hilo de trabajo
 function trabajar(timestamp, minPalabras) {
-  setInterval(() => {
-    const resultado = {
-      timestamp: timestamp,
-      value: generarTextoRandom(minPalabras)
-    };
-    parentPort.postMessage(resultado);
-  }, timestamp); // Intervalo de tiempo aleatorio entre envíos (entre 1 y 5 segundos)
+  parentPort.postMessage(generarTextoRandom(minPalabras));
 }
 
 // Obtener los datos pasados desde el hilo principal

@@ -1,0 +1,65 @@
+{
+    "dispositivos": [
+      {
+        "Timestamp": 500,
+        "value": 10
+      },
+      {
+        "Timestamp": 8000,
+        "value": 90
+      },
+      {
+        "Timestamp": 2500,
+        "value": 40
+      },
+      {
+        "Timestamp": 15000,
+        "value": 60
+      },
+      {
+        "Timestamp": 6000,
+        "value": 30
+      },
+      {
+        "Timestamp": 2000,
+        "value": 70
+      },
+      {
+        "Timestamp": 30000,
+        "value": 80
+      },
+      {
+        "Timestamp": 1000,
+        "value": 20
+      },
+      {
+        "Timestamp": 700,
+        "value": 50
+      },
+      {
+        "Timestamp": 12000,
+        "value": 95
+      },
+      {
+        "Timestamp": 4000,
+        "value": 45
+      },
+      {
+        "Timestamp": 18000,
+        "value": 75
+      },
+      {
+        "Timestamp": 9000,
+        "value": 15
+      },
+      {
+        "Timestamp": 16000,
+        "value": 65
+      },
+      {
+        "Timestamp": 3500,
+        "value": 35
+      }
+    ]
+  }
+  
