@@ -6,7 +6,7 @@ const { thread } = require('../../lib/thread');
 // Configuración del cliente de Kafka
 const kafka = new Kafka({
   clientId: 'my-app',
-  brokers: ['localhost:29092'] 
+  brokers: ['localhost:29092', 'localhost:39092']
 });
 
 // Función asincrónica para enviar mensajes al tópico
@@ -33,9 +33,6 @@ const sendMessage = async () => {
             })
         }, dispositivo.timestamp)    
     })
-
-    
-    
 };
 
 // Llamada a la función para enviar el mensaje
