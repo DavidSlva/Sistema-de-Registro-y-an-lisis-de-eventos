@@ -1,9 +1,12 @@
-const { Kafka } = require('kafkajs')
+const { Kafka } = require('kafkajs');
+const { limpiarArchivo, guardarDatosEnArchivo } = require('../file');
 
 const kafka = new Kafka({
     clientId: 'my-app',
     brokers: ['localhost:29092', 'localhost:39092']
 })
+
+const OUTPUT_FILE_NAME = 'kafka_output.txt'
 
 // Función asincrónica para recibir mensajes del tópico
 const receiveMessages = async () => {
@@ -13,7 +16,10 @@ const receiveMessages = async () => {
     await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
 
     let counter = 0;
-    console.time('element')
+
+    let startTime = performance.now()
+
+    limpiarArchivo(OUTPUT_FILE_NAME);
 
     await consumer.run({
       eachMessage: async ({ topic, partition, message }) => {
@@ -23,9 +29,11 @@ const receiveMessages = async () => {
         // })
         counter++;
         if(counter%100 === 0){
-          console.log(`Se consumieron ${counter} mensajes`);
-          console.timeEnd('element')
-          console.time('element')
+          let endTime = performance.now();
+          let duration = endTime - startTime
+          guardarDatosEnArchivo(`${counter}, ${duration}\n`,OUTPUT_FILE_NAME)
+          console.log(`Se consumieron ${counter} mensajes en ${duration} ms`);
+          startTime = performance.now()
         }
       },
     })
