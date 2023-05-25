@@ -15,8 +15,8 @@ const receiveMessages = async () => {
 
     await consumer.connect()
     // await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
-    const topicos = ['sms', 'push']
-    topicos.map(async (categoria) => {
+    // const topicos = ['sms', 'push']
+    categorias.map(async (categoria) => {
       console.log(categoria);
       await consumer.subscribe({ topic: categoria, fromBeginning: true })
     })

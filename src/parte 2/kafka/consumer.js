@@ -1,5 +1,6 @@
 const { Kafka } = require('kafkajs');
 const { limpiarArchivo, guardarDatosEnArchivo } = require('../../services/file');
+const { categorias } = require('../../CONSTANTS');
 
 const kafka = new Kafka({
     clientId: 'my-app',
@@ -13,7 +14,12 @@ const receiveMessages = async () => {
     const consumer = kafka.consumer({ groupId: 'test-group' })
 
     await consumer.connect()
-    await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+    // await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+
+    categorias.map(async (categoria) => {
+      console.log(categoria);
+      await consumer.subscribe({ topic: categoria, fromBeginning: true })
+    })
 
     let counter = 0;
 
