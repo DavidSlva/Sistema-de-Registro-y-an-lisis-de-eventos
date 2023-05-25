@@ -1,37 +1,80 @@
 {
-    "dispositivos": [
-      {
-        "Timestamp": 500,
-        "value": 10
-      },
-      {
-        "Timestamp": 8000,
-        "value": 90
-      },
-      {
-        "Timestamp": 2500,
-        "value": 40
-      },
-      {
-        "Timestamp": 15000,
-        "value": 60
-      },
-      {
-        "Timestamp": 6000,
-        "value": 30
-      },
-      {
-        "Timestamp": 2000,
-        "value": 70
-      },
-      {
-        "Timestamp": 30000,
-        "value": 80
-      },
-      {
-        "Timestamp": 1000,
-        "value": 20
-      }
+  "dispositivos": [
+    {
+    "Timestamp": 1000,
+    "value": 1,
+    "categoria": "push"
+    },
+    {
+    "Timestamp": 8000,
+    "value": 10,
+    "categoria": "sms"
+    },
+    {
+    "Timestamp": 3000,
+    "value": 4,
+    "categoria": "correo"
+    },
+    {
+    "Timestamp": 10000,
+    "value": 6,
+    "categoria": "notificacion"
+    },
+    {
+    "Timestamp": 6000,
+    "value": 3,
+    "categoria": "llamada"
+    },
+    {
+    "Timestamp": 2000,
+    "value": 7,
+    "categoria": "push"
+    },
+    {
+    "Timestamp": 10000,
+    "value": 8,
+    "categoria": "sms"
+    },
+    {
+    "Timestamp": 2000,
+    "value": 2,
+    "categoria": "correo"
+    },
+    {
+    "Timestamp": 6000,
+    "value": 5,
+    "categoria": "notificacion"
+    },
+    {
+    "Timestamp": 15000,
+    "value": 9,
+    "categoria": "llamada"
+    },
+    {
+    "Timestamp": 8000,
+    "value": 2,
+    "categoria": "push"
+    },
+    {
+    "Timestamp": 18000,
+    "value": 7,
+    "categoria": "sms"
+    },
+    {
+    "Timestamp": 5000,
+    "value": 3,
+    "categoria": "correo"
+    },
+    {
+    "Timestamp": 12000,
+    "value": 5,
+    "categoria": "notificacion"
+    },
+    {
+    "Timestamp": 7000,
+    "value": 8,
+    "categoria": "llamada"
+    }
     ],
     "dispositivos_large": [
       {

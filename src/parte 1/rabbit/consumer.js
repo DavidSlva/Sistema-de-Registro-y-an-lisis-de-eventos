@@ -1,6 +1,6 @@
 const { COLA_GENERAL } = require("../../config");
 const rabbitMQInstance = require("../../loaders/rabbit");
-const { limpiarArchivo, guardarDatosEnArchivo } = require("../file");
+const { limpiarArchivo, guardarDatosEnArchivo } = require("../../services/file");
 
 const OUTPUT_FILE_NAME = 'rabbit_output.txt'
 
@@ -27,7 +27,7 @@ const consumer = async () => {
         }
         if(counter%100 === 0){
             let endTime = performance.now();
-            let duration = endTime - startTime
+            let duration = Math.floor(endTime - startTime)
             guardarDatosEnArchivo(`${counter}, ${duration}\n`,OUTPUT_FILE_NAME)
             console.log(`Se consumieron ${counter} mensajes en ${duration} ms`);
             startTime = performance.now()

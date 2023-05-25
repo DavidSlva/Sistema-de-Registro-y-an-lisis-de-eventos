@@ -18,13 +18,13 @@ const sendMessage = async () => {
     })
 
     dispositivos.map( async (dispositivo, index) => {
+        
         setInterval(() => {
             thread(FILE_THREAD, {minPalabras: dispositivo.value})
             .then(async (mensaje) => {
                 await producer.connect()
-                console.log(`dispositivo ${index} con categoría ${dispositivo.categoria} enviando ...`);
                 await producer.send({
-                    topic: dispositivo.categoria,
+                    topic: 'test-topic',
                     messages: [
                       { value: mensaje },
                     ],

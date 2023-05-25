@@ -1,6 +1,5 @@
 const { Kafka } = require('kafkajs');
 const { limpiarArchivo, guardarDatosEnArchivo } = require('../../services/file');
-const { categorias } = require('../../CONSTANTS');
 
 const kafka = new Kafka({
     clientId: 'my-app',
@@ -14,12 +13,7 @@ const receiveMessages = async () => {
     const consumer = kafka.consumer({ groupId: 'test-group' })
 
     await consumer.connect()
-    // await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
-    const topicos = ['sms', 'push']
-    topicos.map(async (categoria) => {
-      console.log(categoria);
-      await consumer.subscribe({ topic: categoria, fromBeginning: true })
-    })
+    await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
 
     let counter = 0;
 
@@ -37,13 +31,12 @@ const receiveMessages = async () => {
         if(counter%100 === 0){
           let endTime = performance.now();
           let duration = endTime - startTime
-          guardarDatosEnArchivo(`${counter}, ${duration}\n`,OUTPUT_FILE_NAME)
+          guardarDatosEnArchivo(`${topic},${counter},${duration}\n`,OUTPUT_FILE_NAME)
           console.log(`Se consumieron ${counter} mensajes en ${duration} ms`);
           startTime = performance.now()
         }
       },
     })
-    console.timeEnd('element')
   };
   // Llamada a la función para recibir mensajes
-  receiveMessages().catch(console.error);
+  receiveMessages().catch(console.error);  
