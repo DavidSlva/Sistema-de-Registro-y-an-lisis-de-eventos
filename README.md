@@ -5,7 +5,7 @@
 - Se debe ejecutar el docker-compose `docker-compose up -d` en el directorio
 
 ## Ejecución Parte 1
-### Ejecución con Rabbit
+### Ejecución con Rabbit        
 - `node 'src/parte 1/rabbit/consumer'` Para ejecutar el consumer
 - `node 'src/parte 1/rabbit/producer'` Para ejecutar el producer
 ### Ejecución con kafka
