@@ -24,7 +24,7 @@ const sendMessage = async () => {
             .then(async (mensaje) => {
                 await producer.connect()
                 await producer.send({
-                    topic: 'test-topic',
+                    topic: dispositivo.categoria,
                     messages: [
                       { value: mensaje },
                     ],
