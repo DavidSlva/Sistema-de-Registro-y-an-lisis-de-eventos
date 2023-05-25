@@ -13,9 +13,9 @@ const consumer = async () => {
 
     console.log(`Cola "${COLA_GENERAL}" creada`);
     // limpiarArchivo(OUTPUT_FILE_NAME);
+    limpiarArchivo(`p2_rabbit.txt`);
     categorias.forEach(async (categoria) => {
         const queueName = `${categoria}_queue`;
-        limpiarArchivo(`rabbit_${queueName}.txt`);
         const routingKey = categoria;
         await channel.assertQueue(queueName, { durable: false }); // Declarar una cola para cada tipo de mensaje
         await channel.bindQueue(queueName, exchangeName, routingKey);

@@ -1,0 +1,14 @@
+push_queue,100,147028
+correo_queue,100,182780
+push_queue,200,61851
+push_queue,300,62224
+correo_queue,200,97198
+push_queue,400,61714
+llamada_queue,100,354643
+notificacion_queue,100,372935
+correo_queue,300,96270
+push_queue,500,62533
+sms_queue,100,444809
+push_queue,600,61474
+correo_queue,400,97436
+push_queue,700,61577

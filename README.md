@@ -13,6 +13,15 @@
 - `node 'src/parte 1/kafka/producer'` Para ejecutar el producer
 - - Esta parte seguramente dará warnings, no entiendo aún por qué
 
+## Ejecución Parte 2
+### Ejecución con Rabbit        
+- `node 'src/parte 2/rabbit/consumer'` Para ejecutar el consumer
+- `node 'src/parte 2/rabbit/producer'` Para ejecutar el producer
+### Ejecución con kafka
+- `node 'src/parte 2/kafka/consumer'` Para ejecutar el consumer
+- `node 'src/parte 2/kafka/producer'` Para ejecutar el producer
+- - Esta parte seguramente dará warnings, no entiendo aún por qué
+
 ## Problema 
 - Tenemos una aplicación web o móvil que genera eventos en tiempo real a medida que los usuarios interactúan con ella. Estos eventos pueden ser acciones como clics, navegación, compras, etc. Quieres registrar y analizar estos eventos de manera eficiente y en tiempo real, utilizando colas de mensajes y simulando dispositivos IoT.
 
